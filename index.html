@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brown Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== PAGE LOGIN ===== -->
+  <div class="login-wrapper" id="loginPage">
+    <div class="login-card">
+      <div class="logo-circle">BQ</div>
+      <h1 class="brand-title">Brown Quiz</h1>
+      <p class="brand-sub">Testez vos connaissances en HTML & CSS</p>
+
+      <div class="form-group">
+        <label for="playerName">Votre prénom</label>
+        <input
+          type="text"
+          id="playerName"
+          placeholder="Ex : Marie, Jean..."
+          maxlength="30"
+          autocomplete="off"
+        />
+        <span class="input-error" id="nameError">Veuillez entrer votre prénom.</span>
+      </div>
+
+      <button class="btn-start" onclick="startQuiz()">
+        Commencer le Quiz →
+      </button>
+
+      <p class="login-footer">30 questions · 4 choix par question · 1 bonne réponse</p>
+    </div>
+  </div>
+
+  <!-- ===== PAGE QUIZ ===== -->
+  <div class="quiz-wrapper hidden" id="quizPage">
+
+    <header class="quiz-header">
+      <div class="quiz-brand">Brown Quiz</div>
+      <div class="quiz-meta">
+        <span id="welcomeMsg"></span>
+        <span class="separator">|</span>
+        <span>Question <strong id="currentQ">1</strong> / 30</span>
+      </div>
+    </header>
+
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <main class="quiz-main">
+      <div class="question-card">
+        <span class="q-number" id="qNumber">Q1</span>
+        <h2 class="q-text" id="questionText"></h2>
+
+        <div class="options-grid" id="optionsGrid"></div>
+
+        <div class="feedback-box hidden" id="feedbackBox">
+          <span id="feedbackIcon"></span>
+          <span id="feedbackText"></span>
+        </div>
+
+        <button class="btn-next hidden" id="btnNext" onclick="nextQuestion()">
+          Question suivante →
+        </button>
+      </div>
+    </main>
+
+    <footer class="quiz-footer">
+      <div class="score-live">Score : <strong id="liveScore">0</strong> / 30</div>
+    </footer>
+  </div>
+
+  <!-- ===== PAGE RÉSULTATS ===== -->
+  <div class="result-wrapper hidden" id="resultPage">
+    <div class="result-card">
+      <div class="result-emoji" id="resultEmoji"></div>
+      <h2 class="result-title" id="resultTitle"></h2>
+      <p class="result-player" id="resultPlayer"></p>
+      <div class="result-score-circle">
+        <span id="finalScore">0</span>
+        <small>/ 30</small>
+      </div>
+      <p class="result-msg" id="resultMsg"></p>
+      <button class="btn-restart" onclick="restartQuiz()">🔄 Recommencer</button>
+    </div>
+  </div>
+
+  <script src="quiz.js"></script>
+</body>
+</html>
